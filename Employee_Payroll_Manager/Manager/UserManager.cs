@@ -36,6 +36,17 @@ namespace Employee_Payroll_Manager.Manager
                 throw new Exception(ex.Message);
             }
         }
+        public UserTicket CreateTicketForPassword(string emailID, string token)
+        {
+            try
+            {
+                return this.userRepository.CreateTicketForPassword(emailID,token);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public string ForgotPassword(string emailID)
         {
             try
@@ -54,6 +65,17 @@ namespace Employee_Payroll_Manager.Manager
                 return this.userRepository.ResetPassword(Password, UserID);
             }
             catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public bool DeleteEmployee(int UserID)
+        {
+            try
+            {
+                return this.userRepository.DeleteEmployee(UserID);
+            }
+            catch(Exception ex)
             {
                 throw new Exception(ex.Message);
             }

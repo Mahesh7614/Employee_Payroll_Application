@@ -95,5 +95,23 @@ namespace Employee_Payroll_Application.Controllers
                 return this.BadRequest(new { success = false, message = ex.Message });
             }
         }
+        [HttpDelete]
+        [Route("Employee_Payroll/DeleteUser")]
+        public IActionResult DeletePassword(int UserID)
+        {
+            try
+            {
+                bool delete = this.userManager.DeleteEmployee(UserID);
+                if(delete)
+                {
+                    return this.Ok(new {sucess = true, Message = "User Deleted Successfully" ,result =delete});
+                }
+                return this.Ok(new { sucess = true, Message = "User Not Deleted ", result = delete });
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(new { sucess = true, message = ex.Message });
+            }
+        }
     }
 }

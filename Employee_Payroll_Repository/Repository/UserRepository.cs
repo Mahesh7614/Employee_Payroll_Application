@@ -128,6 +128,42 @@ namespace Employee_Payroll_Repository.Repository
                 }
             }
         }
+        public UserTicket CreateTicketForPassword(string emailID, string token)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                UserTicket ticket = new UserTicket();
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("SPForgotPassword", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@EmailID", emailID);
+
+                    connection.Open();
+                    SqlDataReader Reader = command.ExecuteReader();
+
+                    if (Reader.HasRows)
+                    {
+                        while (Reader.Read())
+                        {
+                            ticket.FullName = Reader.IsDBNull("FullName") ? string.Empty : Reader.GetString("FullName");
+                            ticket.EmailId = Reader.IsDBNull("EmailID") ? string.Empty : Reader.GetString("EmailID");
+                            ticket.Token = token;
+                            ticket.IssueAt = DateTime.Now;
+
+                        }
+                        return ticket;
+                    }
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public string ForgotPassword(string emailID)
         {
             SqlConnection connection = new SqlConnection(connectionString);
@@ -149,12 +185,10 @@ namespace Employee_Payroll_Repository.Repository
                         while (Reader.Read())
                         {
                             userModel.UserID = Reader.IsDBNull("UserID") ? 0 : Reader.GetInt32("UserID");
-                            userModel.Fullname = Reader.IsDBNull("FullName") ? string.Empty : Reader.GetString("FullName");
+                            //userModel.Fullname = Reader.IsDBNull("FullName") ? string.Empty : Reader.GetString("FullName");
                         }
                         string token = GenerateJWTToken(emailID, userModel.UserID);
-                        //MSMQModel mSMQModel = new MSMQModel();
-                        //mSMQModel.SendMessage(token, emailID, userSignUp.FullName);
-                        return token.ToString();
+                        return token;
                     }
                     return null;
                 }
@@ -196,6 +230,35 @@ namespace Employee_Payroll_Repository.Repository
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        } 
+        public bool DeleteEmployee(int UserID)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("SPDeleteUser", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    connection.Open();
+
+                    int deleteOrNot = command.ExecuteNonQuery();
+                    if(deleteOrNot >= 1)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally 
+            { 
+                connection.Close(); 
             }
         }
     }

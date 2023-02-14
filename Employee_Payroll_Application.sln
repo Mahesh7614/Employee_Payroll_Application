@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee_Payroll_Application", "Employee_Payroll_Application\Employee_Payroll_Application.csproj", "{BE4CFFB4-623E-42B5-82A8-1B950C0E2B43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee_Payroll_Application", "Employee_Payroll_Application\Employee_Payroll_Application.csproj", "{BE4CFFB4-623E-42B5-82A8-1B950C0E2B43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee_Payroll_Repository", "Employee_Payroll_Repository\Employee_Payroll_Repository.csproj", "{4F84877B-F743-4D4E-B86E-D87D19A5B5BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee_Payroll_Repository", "Employee_Payroll_Repository\Employee_Payroll_Repository.csproj", "{4F84877B-F743-4D4E-B86E-D87D19A5B5BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee_Payroll_Model", "Employee_Payroll_Model\Employee_Payroll_Model.csproj", "{79004CE6-D2D5-469A-9216-F003630FDBE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee_Payroll_Model", "Employee_Payroll_Model\Employee_Payroll_Model.csproj", "{79004CE6-D2D5-469A-9216-F003630FDBE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee_Payroll_Manager", "Employee_Payroll_Manager\Employee_Payroll_Manager.csproj", "{51EAA0D8-2C24-4046-8A8A-A849D41523C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee_Payroll_Manager", "Employee_Payroll_Manager\Employee_Payroll_Manager.csproj", "{51EAA0D8-2C24-4046-8A8A-A849D41523C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketConsumer", "TicketConsumer\TicketConsumer.csproj", "{6F51B6D1-DA32-4219-A26C-FA9FEA8E59DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{51EAA0D8-2C24-4046-8A8A-A849D41523C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51EAA0D8-2C24-4046-8A8A-A849D41523C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51EAA0D8-2C24-4046-8A8A-A849D41523C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F51B6D1-DA32-4219-A26C-FA9FEA8E59DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F51B6D1-DA32-4219-A26C-FA9FEA8E59DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F51B6D1-DA32-4219-A26C-FA9FEA8E59DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F51B6D1-DA32-4219-A26C-FA9FEA8E59DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
